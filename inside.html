@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AXEL — Inside</title>
+  <style>
+    :root {
+      --bg: #070707;
+      --fg: #f4f4f4;
+      --muted: rgba(244,244,244,.55);
+      --line: rgba(244,244,244,.16);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--fg);
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    }
+    header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 10;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 28px 40px;
+      letter-spacing: .42em;
+      font-size: 11px;
+      background: linear-gradient(#070707, rgba(7,7,7,.7), transparent);
+    }
+    header a { color: var(--fg); text-decoration: none; opacity: .7; }
+    header a:hover { opacity: 1; }
+    nav { display: flex; gap: 22px; flex-wrap: wrap; }
+
+    section {
+      min-height: 100vh;
+      padding: 140px 40px 80px;
+      border-top: 1px solid var(--line);
+    }
+    .kicker {
+      letter-spacing: .4em;
+      font-size: 11px;
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+    h1 {
+      font-weight: 400;
+      letter-spacing: .1em;
+      font-size: clamp(32px, 5vw, 56px);
+      margin-bottom: 16px;
+    }
+    .lead { color: var(--muted); max-width: 520px; line-height: 1.7; margin-bottom: 40px; }
+    p { line-height: 1.7; color: rgba(244,244,244,.8); }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 18px;
+      max-width: 1100px;
+    }
+    .card { border: 1px solid var(--line); padding: 16px; }
+    .thumb { height: 160px; background: #171717; margin-bottom: 14px; }
+    .card h2 { font-size: 14px; letter-spacing: .2em; font-weight: 500; margin-bottom: 8px; }
+    .card p { color: var(--muted); font-size: 14px; }
+
+    .block { max-width: 720px; margin-bottom: 28px; }
+    .block h3 {
+      font-size: 12px;
+      letter-spacing: .28em;
+      color: var(--muted);
+      margin-bottom: 10px;
+    }
+    .row { display: grid; grid-template-columns: 130px 1fr; gap: 14px; margin-bottom: 14px; }
+    .row span { color: var(--muted); font-size: 13px; }
+    .mail { color: #fff; font-size: 22px; text-decoration: none; letter-spacing: .06em; }
+
+    @media (max-width: 700px) {
+      header { padding: 18px; }
+      nav { gap: 12px; }
+      section { padding: 110px 18px 60px; }
+      .row { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <a href="index.html">AXEL</a>
+    <nav>
+      <a href="#products">PRODUCTS</a>
+      <a href="#cv">CV</a>
+      <a href="#about">ABOUT</a>
+      <a href="#contact">CONTACT</a>
+    </nav>
+  </header>
+
+  <section id="products">
+    <p class="kicker">01 / PRODUCTS</p>
+    <h1>Work</h1>
+    <p class="lead">Replace these cards with your real products.</p>
+    <div class="grid">
+      <article class="card">
+        <div class="thumb"></div>
+        <h2>AXEL ONE</h2>
+        <p>Product one. Short description.</p>
+      </article>
+      <article class="card">
+        <div class="thumb"></div>
+        <h2>AXEL ARC</h2>
+        <p>Product two. Short description.</p>
+      </article>
+      <article class="card">
+        <div class="thumb"></div>
+        <h2>AXEL LINE</h2>
+        <p>Product three. Short description.</p>
+      </article>
+    </div>
+  </section>
+
+  <section id="cv">
+    <p class="kicker">02 / CV</p>
+    <h1>Curriculum Vitae</h1>
+    <div class="block">
+      <h3>PROFILE</h3>
+      <p>One or two sentences about you.</p>
+    </div>
+    <div class="block">
+      <h3>EXPERIENCE</h3>
+      <div class="row">
+        <span>2024 — Now</span>
+        <div><strong>Founder, AXEL</strong><p>What you do now.</p></div>
+      </div>
+      <div class="row">
+        <span>2021 — 2024</span>
+        <div><strong>Role, Company</strong><p>What you did there.</p></div>
+      </div>
+    </div>
+    <div class="block">
+      <h3>SKILLS</h3>
+      <p>Direction · Product · Brand · Web</p>
+    </div>
+  </section>
+
+  <section id="about">
+    <p class="kicker">03 / ABOUT</p>
+    <h1>About</h1>
+    <p class="lead">Who AXEL is. Where you work from. Why it exists. Keep it short.</p>
+  </section>
+
+  <section id="contact">
+    <p class="kicker">04 / CONTACT</p>
+    <h1>Contact</h1>
+    <p class="lead">Projects, commissions, press.</p>
+    <p><a class="mail" href="mailto:hello@axel.studio">hello@axel.studio</a></p>
+  </section>
+</body>
+</html>
