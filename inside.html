@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AXEL — Inside</title>
+  <title>AXEL — Products</title>
   <style>
     :root {
       --bg: #070707;
@@ -12,7 +12,6 @@
       --line: rgba(244,244,244,.16);
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
     body {
       background: var(--bg);
       color: var(--fg);
@@ -20,7 +19,7 @@
     }
     header {
       position: fixed;
-      top: 0; left: 0; right: 0;
+      inset: 0 0 auto 0;
       z-index: 10;
       display: flex;
       justify-content: space-between;
@@ -28,59 +27,56 @@
       padding: 28px 40px;
       letter-spacing: .42em;
       font-size: 11px;
-      background: linear-gradient(#070707, rgba(7,7,7,.7), transparent);
+      background: linear-gradient(#070707 40%, transparent);
     }
     header a { color: var(--fg); text-decoration: none; opacity: .7; }
     header a:hover { opacity: 1; }
-    nav { display: flex; gap: 22px; flex-wrap: wrap; }
+    nav { display: flex; gap: 22px; }
 
-    section {
-      min-height: 100vh;
-      padding: 140px 40px 80px;
-      border-top: 1px solid var(--line);
-    }
+    main { padding: 130px 40px 90px; min-height: 100vh; }
     .kicker {
       letter-spacing: .4em;
       font-size: 11px;
       color: var(--muted);
-      margin-bottom: 16px;
+      margin-bottom: 14px;
     }
     h1 {
       font-weight: 400;
       letter-spacing: .1em;
-      font-size: clamp(32px, 5vw, 56px);
+      font-size: clamp(34px, 5vw, 58px);
       margin-bottom: 16px;
     }
-    .lead { color: var(--muted); max-width: 520px; line-height: 1.7; margin-bottom: 40px; }
-    p { line-height: 1.7; color: rgba(244,244,244,.8); }
-
+    .lead {
+      color: var(--muted);
+      max-width: 560px;
+      line-height: 1.7;
+      margin-bottom: 48px;
+    }
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
       gap: 18px;
-      max-width: 1100px;
+      max-width: 1120px;
     }
-    .card { border: 1px solid var(--line); padding: 16px; }
-    .thumb { height: 160px; background: #171717; margin-bottom: 14px; }
-    .card h2 { font-size: 14px; letter-spacing: .2em; font-weight: 500; margin-bottom: 8px; }
-    .card p { color: var(--muted); font-size: 14px; }
-
-    .block { max-width: 720px; margin-bottom: 28px; }
-    .block h3 {
-      font-size: 12px;
-      letter-spacing: .28em;
+    .card { border: 1px solid var(--line); padding: 18px; }
+    .thumb {
+      height: 150px;
+      margin-bottom: 16px;
+      background: linear-gradient(160deg, #141414, #2a2a2a);
+    }
+    .card h2 {
+      font-size: 13px;
+      letter-spacing: .22em;
+      font-weight: 500;
+      margin-bottom: 8px;
+    }
+    .card p {
       color: var(--muted);
-      margin-bottom: 10px;
+      font-size: 14px;
+      line-height: 1.7;
     }
-    .row { display: grid; grid-template-columns: 130px 1fr; gap: 14px; margin-bottom: 14px; }
-    .row span { color: var(--muted); font-size: 13px; }
-    .mail { color: #fff; font-size: 22px; text-decoration: none; letter-spacing: .06em; }
-
     @media (max-width: 700px) {
-      header { padding: 18px; }
-      nav { gap: 12px; }
-      section { padding: 110px 18px 60px; }
-      .row { grid-template-columns: 1fr; }
+      header, main { padding-left: 18px; padding-right: 18px; }
     }
   </style>
 </head>
@@ -88,71 +84,52 @@
   <header>
     <a href="index.html">AXEL</a>
     <nav>
-      <a href="#products">PRODUCTS</a>
-      <a href="#cv">CV</a>
-      <a href="#about">ABOUT</a>
-      <a href="#contact">CONTACT</a>
+      <a href="inside.html">WORK</a>
+      <a href="cv.html">CV</a>
+      <a href="contact.html">CONTACT</a>
     </nav>
   </header>
 
-  <section id="products">
-    <p class="kicker">01 / PRODUCTS</p>
-    <h1>Work</h1>
-    <p class="lead">Replace these cards with your real products.</p>
+  <main>
+    <p class="kicker">PRODUCTS & SERVICES</p>
+    <h1>What AXEL makes</h1>
+    <p class="lead">
+      Precision work across science, systems, and form.
+      Replace any line. The structure stays.
+    </p>
+
     <div class="grid">
       <article class="card">
         <div class="thumb"></div>
-        <h2>AXEL ONE</h2>
-        <p>Product one. Short description.</p>
+        <h2>RESEARCH DESIGN</h2>
+        <p>Study structure, method, and evidence shaped so other people can actually use it.</p>
       </article>
       <article class="card">
         <div class="thumb"></div>
-        <h2>AXEL ARC</h2>
-        <p>Product two. Short description.</p>
+        <h2>LAB TO LANGUAGE</h2>
+        <p>Turn dense technical work into clear reports, decks, and public-facing papers.</p>
       </article>
       <article class="card">
         <div class="thumb"></div>
-        <h2>AXEL LINE</h2>
-        <p>Product three. Short description.</p>
+        <h2>SYSTEM BUILDING</h2>
+        <p>Frameworks, tools, and workflows that keep a project from collapsing under its own notes.</p>
+      </article>
+      <article class="card">
+        <div class="thumb"></div>
+        <h2>IDENTITY & FORM</h2>
+        <p>Marks, layouts, and objects with the same edge as the work behind them.</p>
+      </article>
+      <article class="card">
+        <div class="thumb"></div>
+        <h2>ADVISORY</h2>
+        <p>Short counsel for labs, founders, and teams who need a second mind in the room.</p>
+      </article>
+      <article class="card">
+        <div class="thumb"></div>
+        <h2>COMMISSIONS</h2>
+        <p>One-off pieces. Named, scoped, delivered. Write and ask.</p>
       </article>
     </div>
-  </section>
-
-  <section id="cv">
-    <p class="kicker">02 / CV</p>
-    <h1>Curriculum Vitae</h1>
-    <div class="block">
-      <h3>PROFILE</h3>
-      <p>One or two sentences about you.</p>
-    </div>
-    <div class="block">
-      <h3>EXPERIENCE</h3>
-      <div class="row">
-        <span>2024 — Now</span>
-        <div><strong>Founder, AXEL</strong><p>What you do now.</p></div>
-      </div>
-      <div class="row">
-        <span>2021 — 2024</span>
-        <div><strong>Role, Company</strong><p>What you did there.</p></div>
-      </div>
-    </div>
-    <div class="block">
-      <h3>SKILLS</h3>
-      <p>Direction · Product · Brand · Web</p>
-    </div>
-  </section>
-
-  <section id="about">
-    <p class="kicker">03 / ABOUT</p>
-    <h1>About</h1>
-    <p class="lead">Who AXEL is. Where you work from. Why it exists. Keep it short.</p>
-  </section>
-
-  <section id="contact">
-    <p class="kicker">04 / CONTACT</p>
-    <h1>Contact</h1>
-    <p class="lead">Projects, commissions, press.</p>
-    <p><a class="mail" href="mailto:hello@axel.studio">hello@axel.studio</a></p>
-  </section>
+  </main>
 </body>
 </html>
