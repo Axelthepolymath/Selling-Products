@@ -18,7 +18,10 @@
     p { line-height:1.75; color:rgba(244,244,244,.82); margin-bottom:16px; }
     .cost { margin-top:28px; padding-top:22px; border-top:1px solid var(--line); }
     .cost h2 { font-size:12px; letter-spacing:.3em; color:var(--muted); margin-bottom:10px; }
-    .price { font-size:28px; letter-spacing:.08em; margin-bottom:8px; }
+    .price { font-size:28px; letter-spacing:.08em; margin-bottom:16px; }
+    .buy { display:inline-block; padding:14px 28px; border:1px solid rgba(244,244,244,.35); color:var(--fg); text-decoration:none; letter-spacing:.32em; font-size:11px; }
+    .buy:hover { background:#fff; color:#111; }
+    .note { margin-top:14px; color:var(--muted); font-size:13px; }
     .back { display:inline-block; margin-top:36px; color:var(--fg); text-decoration:none; letter-spacing:.28em; font-size:11px; opacity:.7; }
   </style>
 </head>
@@ -36,12 +39,13 @@
     <h1>Complex Science</h1>
     <img src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&w=1600&q=80" alt="" />
     <p>I take scientific problems that have outgrown a simple experiment or one formula: mixed data, a model that will not predict, a mechanism with too many parts.</p>
-    <p>The work is to name the phenomenon, drop what does not matter, and set a line of attack that can be tested. Theory, method, and results are treated as one problem.</p>
+    <p>The work is to name the phenomenon, drop what does not matter, and set a line of attack that can be tested.</p>
     <p>Send the question, the evidence you have, and the limit you are under. You get a model of the problem and the next move that would change it.</p>
     <div class="cost">
       <h2>COST</h2>
       <p class="price">$2,400</p>
-      <p>One defined scientific problem. Written brief and method.</p>
+      <a class="buy" href="https://buy.stripe.com/YOUR_STRIPE_LINK_SCIENCE">PURCHASE</a>
+      <p class="note">Opens Stripe. Buyer enters card details. Payment goes to the Stripe account tied to that link.</p>
     </div>
     <a class="back" href="inside.html">← WORK</a>
   </main>
