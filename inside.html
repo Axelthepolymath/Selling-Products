@@ -48,21 +48,24 @@
     }
     .lead {
       color: var(--muted);
-      max-width: 560px;
+      max-width: 640px;
       line-height: 1.7;
       margin-bottom: 48px;
     }
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 18px;
       max-width: 1120px;
     }
-    .card { border: 1px solid var(--line); padding: 18px; }
-    .thumb {
-      height: 150px;
+    .card { border: 1px solid var(--line); padding: 14px; }
+    .card img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      display: block;
       margin-bottom: 16px;
-      background: linear-gradient(160deg, #141414, #2a2a2a);
+      filter: grayscale(1) contrast(1.1);
     }
     .card h2 {
       font-size: 13px;
@@ -92,42 +95,41 @@
 
   <main>
     <p class="kicker">PRODUCTS & SERVICES</p>
-    <h1>What AXEL makes</h1>
+    <h1>Problem solver</h1>
     <p class="lead">
-      Precision work across science, systems, and form.
-      Replace any line. The structure stays.
+      I take problems that refuse a cheap answer.
+      Philosophy first — epistemology and metaphysics only.
+      Then the hard cases in mathematics and in science.
     </p>
 
     <div class="grid">
       <article class="card">
-        <div class="thumb"></div>
-        <h2>RESEARCH DESIGN</h2>
-        <p>Study structure, method, and evidence shaped so other people can actually use it.</p>
+        <img src="philosophy.jpg" alt="Epistemology and metaphysics" />
+        <h2>EPISTEMOLOGY & METAPHYSICS</h2>
+        <p>
+          I solve problems inside philosophy, and only in two rooms:
+          how we know, and what there is. Justification, perception,
+          truth, being, cause, mind, world. No side paths.
+        </p>
       </article>
+
       <article class="card">
-        <div class="thumb"></div>
-        <h2>LAB TO LANGUAGE</h2>
-        <p>Turn dense technical work into clear reports, decks, and public-facing papers.</p>
+        <img src="math.jpg" alt="Complex mathematics" />
+        <h2>COMPLEX MATHEMATICS</h2>
+        <p>
+          I solve complex problems in mathematics — structure, proof,
+          and the places where a system breaks. If the difficulty is real,
+          it belongs here.
+        </p>
       </article>
+
       <article class="card">
-        <div class="thumb"></div>
-        <h2>SYSTEM BUILDING</h2>
-        <p>Frameworks, tools, and workflows that keep a project from collapsing under its own notes.</p>
-      </article>
-      <article class="card">
-        <div class="thumb"></div>
-        <h2>IDENTITY & FORM</h2>
-        <p>Marks, layouts, and objects with the same edge as the work behind them.</p>
-      </article>
-      <article class="card">
-        <div class="thumb"></div>
-        <h2>ADVISORY</h2>
-        <p>Short counsel for labs, founders, and teams who need a second mind in the room.</p>
-      </article>
-      <article class="card">
-        <div class="thumb"></div>
-        <h2>COMMISSIONS</h2>
-        <p>One-off pieces. Named, scoped, delivered. Write and ask.</p>
+        <img src="science.jpg" alt="Complex science" />
+        <h2>COMPLEX SCIENCE</h2>
+        <p>
+          I solve complex problems in science. Model the phenomenon,
+          isolate what matters, and push until the result can stand.
+        </p>
       </article>
     </div>
   </main>
