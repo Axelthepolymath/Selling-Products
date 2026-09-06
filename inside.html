@@ -29,7 +29,7 @@
       font-size: 11px;
       background: linear-gradient(#070707 40%, transparent);
     }
-    header a { color: var(--fg); text-decoration: none; opacity: .7; }
+    header a { color: var(--fg); text-decoration: none; opacity: .7; cursor: pointer; }
     header a:hover { opacity: 1; }
     nav { display: flex; gap: 22px; }
 
@@ -64,9 +64,13 @@
       text-decoration: none;
       color: inherit;
       display: block;
+      cursor: pointer;
+      background: transparent;
+      text-align: left;
+      font: inherit;
     }
     .card:hover { border-color: rgba(244,244,244,.4); }
-    .card img {
+    .card img, .detail img {
       width: 100%;
       height: 220px;
       object-fit: cover;
@@ -74,16 +78,42 @@
       margin-bottom: 16px;
       filter: grayscale(1) contrast(1.15);
     }
-    .card h2 {
+    .detail img { height: 280px; margin: 18px 0 28px; border: 1px solid var(--line); }
+    .card h2, .detail h1 {
       font-size: 13px;
       letter-spacing: .22em;
       font-weight: 500;
       margin-bottom: 8px;
     }
-    .card p {
+    .detail h1 {
+      font-size: clamp(28px, 5vw, 48px);
+      letter-spacing: .08em;
+      font-weight: 400;
+      margin-bottom: 8px;
+    }
+    .card p, .detail p {
       color: var(--muted);
       font-size: 14px;
       line-height: 1.7;
+    }
+    .detail p { color: rgba(244,244,244,.82); margin-bottom: 16px; font-size: 16px; }
+    .detail { display: none; max-width: 780px; }
+    .detail.show { display: block; }
+    .list.hide { display: none; }
+    .cost { margin-top: 28px; padding-top: 22px; border-top: 1px solid var(--line); }
+    .cost h2 { font-size: 12px; letter-spacing: .3em; color: var(--muted); margin-bottom: 10px; }
+    .price { font-size: 28px; letter-spacing: .08em; color: var(--fg); margin-bottom: 8px; }
+    .back {
+      display: inline-block;
+      margin-top: 36px;
+      color: var(--fg);
+      letter-spacing: .28em;
+      font-size: 11px;
+      opacity: .7;
+      cursor: pointer;
+      background: none;
+      border: 0;
+      font-family: inherit;
     }
     @media (max-width: 700px) {
       header, main { padding-left: 18px; padding-right: 18px; }
@@ -101,44 +131,98 @@
   </header>
 
   <main>
-    <p class="kicker">PRODUCTS & SERVICES</p>
-    <h1>Problem solver</h1>
-    <p class="lead">
-      I take problems that refuse a cheap answer.
-      Philosophy first — epistemology and metaphysics only.
-      Then the hard cases in mathematics and in science.
-    </p>
+    <div id="list" class="list">
+      <p class="kicker">PRODUCTS & SERVICES</p>
+      <h1>Problem solver</h1>
+      <p class="lead">
+        I take problems that refuse a cheap answer.
+        Philosophy first — epistemology and metaphysics only.
+        Then the hard cases in mathematics and in science.
+      </p>
 
-    <div class="grid">
-      <a class="card" href="philosophy.html">
-        <img src="https://images.unsplash.com/photo-1554907984-15263bfd63bd?auto=format&fit=crop&w=1400&q=80" alt="Epistemology and metaphysics" />
-        <h2>EPISTEMOLOGY & METAPHYSICS</h2>
-        <p>
-          I solve problems inside philosophy, and only in two rooms:
-          how we know, and what there is. Justification, perception,
-          truth, being, cause, mind, world. No side paths.
-        </p>
-      </a>
+      <div class="grid">
+        <button class="card" type="button" onclick="openPage('philosophy')">
+          <img src="https://images.unsplash.com/photo-1554907984-15263bfd63bd?auto=format&fit=crop&w=1400&q=80" alt="" />
+          <h2>EPISTEMOLOGY & METAPHYSICS</h2>
+          <p>I solve problems inside philosophy, and only in two rooms: how we know, and what there is.</p>
+        </button>
 
-      <a class="card" href="math.html">
-        <img src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?auto=format&fit=crop&w=1400&q=80" alt="Complex mathematics" />
-        <h2>COMPLEX MATHEMATICS</h2>
-        <p>
-          I solve complex problems in mathematics — structure, proof,
-          and the places where a system breaks. If the difficulty is real,
-          it belongs here.
-        </p>
-      </a>
+        <button class="card" type="button" onclick="openPage('math')">
+          <img src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?auto=format&fit=crop&w=1400&q=80" alt="" />
+          <h2>COMPLEX MATHEMATICS</h2>
+          <p>I solve complex problems in mathematics — structure, proof, and the places where a system breaks.</p>
+        </button>
 
-      <a class="card" href="science.html">
-        <img src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&w=1400&q=80" alt="Complex science" />
-        <h2>COMPLEX SCIENCE</h2>
-        <p>
-          I solve complex problems in science. Model the phenomenon,
-          isolate what matters, and push until the result can stand.
-        </p>
-      </a>
+        <button class="card" type="button" onclick="openPage('science')">
+          <img src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&w=1400&q=80" alt="" />
+          <h2>COMPLEX SCIENCE</h2>
+          <p>I solve complex problems in science. Model the phenomenon, isolate what matters, and push until the result can stand.</p>
+        </button>
+      </div>
+    </div>
+
+    <div id="philosophy" class="detail">
+      <p class="kicker">PRODUCT 01</p>
+      <h1>Epistemology & Metaphysics</h1>
+      <img src="https://images.unsplash.com/photo-1554907984-15263bfd63bd?auto=format&fit=crop&w=1600&q=80" alt="" />
+      <p>This is not general philosophy. I take problems only in epistemology and metaphysics: what can be known, how it is known, and what must exist for that knowledge to be possible.</p>
+      <p>Typical work includes justification, perception, testimony, scepticism, truth, identity, causation, mind and world. I isolate the claim, strip the extra language, and return a position you can defend.</p>
+      <p>You bring a paper, a thesis chapter, or a contradiction you cannot dissolve. I return an argument with its costs visible: what you keep, what you give up, and why.</p>
+      <div class="cost">
+        <h2>COST</h2>
+        <p class="price">$1,800</p>
+        <p>Fixed fee for one focused problem. Written analysis and a working session.</p>
+      </div>
+      <button class="back" type="button" onclick="back()">← WORK</button>
+    </div>
+
+    <div id="math" class="detail">
+      <p class="kicker">PRODUCT 02</p>
+      <h1>Complex Mathematics</h1>
+      <img src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?auto=format&fit=crop&w=1600&q=80" alt="" />
+      <p>I take mathematical problems that are already hard: a proof that will not close, a structure that will not stay consistent, a model that behaves until one assumption is moved.</p>
+      <p>The work is to find the exact point of failure, rebuild the argument, and leave a result that can be checked.</p>
+      <p>You send the problem, the attempted work, and the constraint. I return definitions cleaned, steps ordered, and the remaining risk named.</p>
+      <div class="cost">
+        <h2>COST</h2>
+        <p class="price">$2,200</p>
+        <p>Fixed fee for one bounded problem. Written solution path plus review.</p>
+      </div>
+      <button class="back" type="button" onclick="back()">← WORK</button>
+    </div>
+
+    <div id="science" class="detail">
+      <p class="kicker">PRODUCT 03</p>
+      <h1>Complex Science</h1>
+      <img src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&w=1600&q=80" alt="" />
+      <p>I take scientific problems that have outgrown a simple experiment or a single formula: mixed data, a model that will not predict, a mechanism with too many moving parts.</p>
+      <p>The work is to name the phenomenon, cut what does not matter, and design a line of attack that can be tested.</p>
+      <p>You send the question, the evidence you already have, and the limit you are under. I return a model of the problem and the next move that would actually change it.</p>
+      <div class="cost">
+        <h2>COST</h2>
+        <p class="price">$2,400</p>
+        <p>Fixed fee for one defined scientific problem. Written brief and method.</p>
+      </div>
+      <button class="back" type="button" onclick="back()">← WORK</button>
     </div>
   </main>
+
+  <script>
+    function openPage(id) {
+      document.getElementById('list').classList.add('hide');
+      document.querySelectorAll('.detail').forEach(function (el) {
+        el.classList.remove('show');
+      });
+      document.getElementById(id).classList.add('show');
+      window.scrollTo(0, 0);
+    }
+    function back() {
+      document.querySelectorAll('.detail').forEach(function (el) {
+        el.classList.remove('show');
+      });
+      document.getElementById('list').classList.remove('hide');
+      window.scrollTo(0, 0);
+    }
+  </script>
 </body>
 </html>
