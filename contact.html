@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact — AXEL</title>
+  <style>
+    :root { --bg:#070707; --fg:#f4f4f4; --muted:rgba(244,244,244,.55); --line:rgba(244,244,244,.16); }
+    * { box-sizing:border-box; margin:0; padding:0; }
+    body { background:var(--bg); color:var(--fg); font-family:"Helvetica Neue", Helvetica, Arial, sans-serif; }
+    header {
+      position:fixed; inset:0 0 auto 0; z-index:10;
+      display:flex; justify-content:space-between; align-items:center;
+      padding:28px 40px; letter-spacing:.42em; font-size:11px;
+      background:linear-gradient(#070707 40%, transparent);
+    }
+    header a { color:var(--fg); text-decoration:none; opacity:.7; }
+    header a:hover { opacity:1; }
+    nav { display:flex; gap:22px; }
+    main { padding:130px 40px 90px; max-width:720px; }
+    .kicker { letter-spacing:.4em; font-size:11px; color:var(--muted); margin-bottom:14px; }
+    h1 { font-weight:400; letter-spacing:.08em; font-size:clamp(32px,5vw,52px); margin-bottom:22px; }
+    p { line-height:1.8; color:rgba(244,244,244,.82); margin-bottom:18px; }
+    .sign { margin-top:28px; letter-spacing:.2em; font-size:13px; }
+    .box { margin-top:48px; padding-top:24px; border-top:1px solid var(--line); }
+    .box h2 { font-size:12px; letter-spacing:.3em; color:var(--muted); margin-bottom:14px; }
+    .box a { color:var(--fg); text-decoration:none; border-bottom:1px solid var(--line); }
+    .box p { margin-bottom:8px; }
+    @media (max-width:700px) { header, main { padding-left:18px; padding-right:18px; } }
+  </style>
+</head>
+<body>
+  <header>
+    <a href="index.html">AXEL</a>
+    <nav>
+      <a href="inside.html">WORK</a>
+      <a href="cv.html">CV</a>
+      <a href="contact.html">CONTACT</a>
+    </nav>
+  </header>
+
+  <main>
+    <p class="kicker">04 / CONTACT</p>
+    <h1>Mohamad Wael Elhajj</h1>
+
+    <p>
+      I am Mohamad Wael Elhajj. Axel is the name I work under.
+      Not a mask. A second name I chose when the first one was no longer large enough for the work.
+    </p>
+    <p>
+      AXEL exists because I was a devoted reader of Aristotle.
+      I did not come to him as a tourist. I stayed. I learned how he cut a problem until only the necessary remained.
+      Substance, cause, form, the act of knowing — those pages did not stay on a shelf.
+      They changed the way I sit with a question.
+    </p>
+    <p>
+      There were nights when a sentence of his felt more like a companion than a text.
+      I wanted a mark that could carry that seriousness into my own life:
+      philosophy first, then mathematics, then science, then the machines that think.
+      AXEL is that mark. A sharp letter. A quiet vow.
+    </p>
+    <p>
+      If you write, write as if the problem matters.
+      I will answer in the same spirit.
+    </p>
+    <p class="sign">— AXEL</p>
+
+    <div class="box">
+      <h2>WRITE</h2>
+      <p><a href="mailto:mwe382@student.bau.edu.lb">mwe382@student.bau.edu.lb</a></p>
+      <p>+961 81 005 784</p>
+      <p>Tariq Al-Jdideh, Beirut, Lebanon</p>
+    </div>
+  </main>
+</body>
+</html>
