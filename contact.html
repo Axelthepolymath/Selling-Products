@@ -64,12 +64,11 @@
     </p>
     <p class="done lead">Submitted completely.</p>
 
-    <form action="https://formsubmit.co/mwe382@student.bau.edu.lb" method="POST">
-      <input type="hidden" name="_subject" value="New message from AXEL website" />
-      <input type="hidden" name="_template" value="table" />
-      <input type="hidden" name="_captcha" value="false" />
-      <input type="hidden" name="_next" id="next" value="" />
-      <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" />
+    <form action="https://api.web3forms.com/submit" method="POST">
+      <input type="hidden" name="access_key" value="PASTE_YOUR_WEB3FORMS_ACCESS_KEY_HERE" />
+      <input type="hidden" name="subject" value="New message from AXEL website" />
+      <input type="hidden" name="from_name" value="AXEL website" />
+      <input type="hidden" name="redirect" id="next" value="" />
 
       <div class="grid2">
         <div>
@@ -89,7 +88,7 @@
         </div>
         <div>
           <label for="email">EMAIL</label>
-          <input id="email" name="email" type="email" required />
+          <input id="email" name="Email" type="email" required />
         </div>
       </div>
 
