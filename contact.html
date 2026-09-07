@@ -36,6 +36,9 @@
       font-size:11px; cursor:pointer; font-family:inherit;
     }
     button:hover { background:#fff; color:#111; }
+    .done { display:none; }
+    body.sent form, body.sent .lead { display:none; }
+    body.sent .done { display:block; }
     @media (max-width:700px) {
       header, main { padding-left:18px; padding-right:18px; }
       .grid2 { grid-template-columns:1fr; }
@@ -55,15 +58,19 @@
   <main>
     <p class="kicker">03 / CONTACT</p>
     <h1>Proceed with your analysis</h1>
+
     <p class="lead">
       Introduce yourself, explain what you are currently working on, and describe what you need help with.
       You may either discuss the possibility of having me join your organization or provide the specific problem you would like me to solve.
     </p>
 
+    <p class="done lead">Submitted completely.</p>
+
     <form action="https://formsubmit.co/mwe382@student.bau.edu.lb" method="POST">
       <input type="hidden" name="_subject" value="New message from AXEL website" />
       <input type="hidden" name="_template" value="table" />
       <input type="hidden" name="_captcha" value="false" />
+      <input type="hidden" name="_next" id="next" value="" />
       <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" />
 
       <div class="grid2">
@@ -119,5 +126,12 @@
       <button type="submit">SEND</button>
     </form>
   </main>
+
+  <script>
+    document.getElementById("next").value = window.location.origin + window.location.pathname + "?sent=1";
+    if (window.location.search.indexOf("sent=1") !== -1) {
+      document.body.classList.add("sent");
+    }
+  </script>
 </body>
 </html>
