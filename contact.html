@@ -18,13 +18,11 @@
     .lead { color:var(--muted); max-width:560px; line-height:1.7; margin-bottom:40px; }
     form { display:grid; gap:18px; }
     label { display:block; font-size:11px; letter-spacing:.28em; color:var(--muted); margin-bottom:8px; }
-    input, select, textarea {
+    input, textarea {
       width:100%; background:transparent; color:var(--fg); border:1px solid var(--line);
       padding:14px 14px; font-family:inherit; font-size:15px; outline:none;
     }
-    input:focus, select:focus, textarea:focus { border-color:rgba(244,244,244,.45); }
-    select { appearance:none; }
-    select option { background:#111; color:#fff; }
+    input:focus, textarea:focus { border-color:rgba(244,244,244,.45); }
     textarea { min-height:160px; resize:vertical; line-height:1.6; }
     .grid2 { display:grid; grid-template-columns:1fr 1fr; gap:18px; }
     .choice { border:1px solid var(--line); padding:18px; }
@@ -62,7 +60,12 @@
       You may either discuss the possibility of having me join your organization or provide the specific problem you would like me to solve.
     </p>
 
-    <form id="contact-form">
+    <form action="https://formsubmit.co/mwe382@student.bau.edu.lb" method="POST">
+      <input type="hidden" name="_subject" value="New message from AXEL website" />
+      <input type="hidden" name="_template" value="table" />
+      <input type="hidden" name="_captcha" value="false" />
+      <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" />
+
       <div class="grid2">
         <div>
           <label for="name">FULL NAME</label>
@@ -116,34 +119,5 @@
       <button type="submit">SEND</button>
     </form>
   </main>
-
-  <script>
-    document.getElementById("contact-form").addEventListener("submit", function (e) {
-      e.preventDefault();
-      var name = document.getElementById("name").value.trim();
-      var country = document.getElementById("country").value.trim();
-      var phone = document.getElementById("phone").value.trim();
-      var email = document.getElementById("email").value.trim();
-      var org = document.getElementById("org").value.trim();
-      var request = (document.querySelector('input[name="Request"]:checked') || {}).value || "";
-      var message = document.getElementById("message").value.trim();
-
-      var body =
-        "Name: " + name + "\n" +
-        "Country: " + country + "\n" +
-        "Phone: " + phone + "\n" +
-        "Email: " + email + "\n" +
-        "Organization: " + org + "\n" +
-        "Request: " + request + "\n\n" +
-        "Message:\n" + message;
-
-      var href =
-        "mailto:mwe382@student.bau.edu.lb" +
-        "?subject=" + encodeURIComponent("Contact — AXEL — " + name) +
-        "&body=" + encodeURIComponent(body);
-
-      window.location.href = href;
-    });
-  </script>
 </body>
 </html>
