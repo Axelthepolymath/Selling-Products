@@ -20,12 +20,12 @@
     .file { border:1px solid var(--line); padding:28px 22px; }
     .file h2 { font-size:13px; letter-spacing:.22em; font-weight:500; margin-bottom:10px; }
     .file p { color:var(--muted); font-size:14px; line-height:1.7; margin-bottom:22px; }
-    button.download {
+    a.download {
       display:inline-block; padding:12px 18px; border:1px solid rgba(244,244,244,.28);
       color:var(--fg); background:transparent; letter-spacing:.28em; font-size:11px;
-      cursor:pointer; font-family:inherit;
+      text-decoration:none;
     }
-    button.download:hover { background:#fff; color:#111; }
+    a.download:hover { background:#fff; color:#111; }
     .meta { margin-top:40px; color:var(--muted); font-size:13px; line-height:1.8; }
     @media (max-width:700px) { header, main { padding-left:18px; padding-right:18px; } .row { grid-template-columns:1fr; } }
   </style>
@@ -53,130 +53,9 @@
       <article class="file">
         <h2>AI RESEARCH SCIENTIST</h2>
         <p>Algorithms, mathematical models, and AI research. Python, scientific computing, machine learning.</p>
-        <button class="download" type="button" onclick="downloadCV('scientist')">DOWNLOAD FILE</button>
+        <a class="download" href="https://docs.google.com/document/d/PASTE_SCIENTIST_DOC_ID/edit?usp=sharing" target="_blank" rel="noopener">OPEN GOOGLE DOC</a>
       </article>
       <article class="file">
         <h2>POLYMATH</h2>
         <p>Independent interdisciplinary research: mathematics, physics, philosophy, and logic.</p>
-        <button class="download" type="button" onclick="downloadCV('polymath')">DOWNLOAD FILE</button>
-      </article>
-    </div>
-
-    <p class="meta">
-      Beirut, Lebanon<br />
-      +961 81 005 784<br />
-      mwe382@student.bau.edu.lb
-    </p>
-  </main>
-
-  <script>
-    const files = {
-      scientist: {
-        name: "AXEL-AI-Research-Scientist-CV.txt",
-        text: `RESEARCH SCIENTIST IN ARTIFICIAL INTELLIGENCE
-Legal Name: Mohamad Wael Elhajj
-Second Name: Axel
-
-+961 81 005 784
-mwe382@student.bau.edu.lb
-www.linkedin.com/in/axel-1246a733a
-
-PROFILE
-Experienced for two years in developing algorithms, mathematical models, and innovative AI approaches to solve complex problems. Passionate about advancing AI through research, experimentation, and interdisciplinary work across computer science, mathematics, and technology.
-
-PROFESSIONAL EXPERIENCE
-AXEL / Research Scientist AI | 2025 – Present
-- Conducted research in artificial intelligence, developing algorithms, mathematical models, and computational approaches to solve complex problems.
-- Designed and experimented with AI frameworks, predictive models, and algorithmic methods across machine learning and computational science.
-- Applied mathematics, programming, and theoretical analysis to explore new approaches in artificial intelligence and problem-solving.
-- Developed prototypes, simulations, and research implementations using programming tools such as Python and scientific computing libraries.
-- Investigated interdisciplinary applications of AI across mathematics, physics, neuroscience, and technology.
-- Documented research findings through GitHub repositories, technical papers, and algorithm documentation.
-
-EDUCATION
-Bachelor of Accounting (In Progress)
-Beirut Arab University
-
-TECHNICAL SKILLS
-Computer Science: Algorithms, Data Structures, Computational Theory, Artificial Intelligence, Machine Learning
-Software Engineering: Software Development, System Design, Programming Practices, Version Control
-Programming Languages: Python, Julia
-Tools: GitHub, VS Code, LaTeX, Scientific Computing Tools
-
-INTERESTS
-Philosophy, mathematics, and science. Interdisciplinary research combining theoretical thinking, mathematical reasoning, and scientific approaches, with computer science and artificial intelligence.
-`
-      },
-      polymath: {
-        name: "AXEL-Polymath-CV.txt",
-        text: `MOHAMAD WAEL EL HAJJ
-Second Name: Axel
-Tariq Al-Jdideh, Beirut, Lebanon
-(+961) 81 005 784
-mwe382@student.bau.edu.lb
-
-ORCID: 0009-0001-8606-9898
-ResearchGate: Mohamad Wael Elhajj
-GitHub: Axelthepolymath
-Twitter: Axel
-
-RESEARCHER PROFILE
-Polymath • Interdisciplinary Problem Solver • Independent Researcher
-
-I am a polymath and independent interdisciplinary researcher driven by a passion for solving difficult problems by connecting ideas across fields. My strength is not simply studying mathematics, physics, philosophy, and logic separately — it is connecting them.
-
-RESEARCH EXPERIENCE
-- Develop original mathematical concepts, methods, and frameworks.
-- Investigate classical mathematical problems through alternative formulations.
-- Explore mathematical structures underlying physical and philosophical questions.
-- Construct axiomatic and logical arguments from fundamental definitions.
-- Develop new mathematical notation and conceptual representations.
-- Translate intuitive ideas into formal mathematical expressions.
-- Use computational tools to explore mathematical relationships and patterns.
-- Continuously test and refine ideas through mathematical analysis and critical evaluation.
-- Pursue connections between disciplines that are traditionally studied separately.
-
-EDUCATION
-High School Diploma, Lebanon
-Bachelor of Accounting — Third-Year Student, Beirut Arab University
-
-SKILLS
-Cross-disciplinary reasoning, complex problem solving, first-principles thinking, analytical reasoning, creative problem solving, abstract thinking.
-
-SELECTED PUBLICATIONS
-Mathematics:
-- The Axel Laws: Foundations of Pattern, Equivalence, and Mathematical Structure
-- A New Symmetric ΔL–ΔK Method for the Erdős–Straus Conjecture
-- The Linked-Dot Calculus: A Minimal Algebra for Sequential Branching (Part I)
-- The Porteuim Solution: How Splitting the Edge Solves Königsberg
-- An Explicit Expansion-Elimination Proof of a Fourth-Power Identity at the Fermat Point
-
-Physics & Interdisciplinary:
-- Mind, Signal, and Motion: Proving the Existence of Speed and Kinetic Energy in the Human Body through Axiomatic Logic
-- Introducing New Prepositions as Relational Tools for Physics
-
-Philosophy:
-- On Free Will, Identity, and Nothingness: Three Metaphysical Investigations
-- A Structured Thinking Routine to Produce and Accept Ideas
-
-LANGUAGES
-English
-`
-      }
-    };
-
-    function downloadCV(key) {
-      const file = files[key];
-      const blob = new Blob([file.text], { type: "text/plain;charset=utf-8" });
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement("a");
-      a.href = url;
-      a.download = file.name;
-      document.body.appendChild(a);
-      a.click();
-      a.remove();
-      URL.revokeObjectURL(url);
-    }
-  </script>
-</body>
-</html>
+        <a class="download" href="https://docs.google.com/document/d/PASTE_POLYMATH_DOC_ID/edit?usp=sharing
