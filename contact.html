@@ -38,7 +38,6 @@
       font-size:11px; cursor:pointer; font-family:inherit;
     }
     button:hover { background:#fff; color:#111; }
-    .note { margin-top:18px; color:var(--muted); font-size:13px; line-height:1.7; }
     @media (max-width:700px) {
       header, main { padding-left:18px; padding-right:18px; }
       .grid2 { grid-template-columns:1fr; }
@@ -59,12 +58,11 @@
     <p class="kicker">03 / CONTACT</p>
     <h1>Proceed with your analysis</h1>
     <p class="lead">
-      Introduce yourself, explain what you are currently working on, and describe what you need help with. 
+      Introduce yourself, explain what you are currently working on, and describe what you need help with.
       You may either discuss the possibility of having me join your organization or provide the specific problem you would like me to solve.
-
     </p>
 
-    <form action="mailto:mwe382@student.bau.edu.lb" method="post" enctype="text/plain">
+    <form id="contact-form">
       <div class="grid2">
         <div>
           <label for="name">FULL NAME</label>
@@ -96,15 +94,15 @@
         <p>DO YOU WANT ME TO</p>
         <div class="opts">
           <label>
-            <input type="radio" name="Request" value="Work with my organization" required />
+            <input type="radio" name="Request" value="Collaborate with me within your organization" required />
             Collaborate with me within your organization
           </label>
           <label>
-            <input type="radio" name="Request" value="Solve a problem" />
+            <input type="radio" name="Request" value="Present a problem for me to solve" />
             Present a problem for me to solve.
           </label>
           <label>
-            <input type="radio" name="Request" value="Both" />
+            <input type="radio" name="Request" value="Pursue both" />
             Pursue both: collaborate with me and provide a problem for me to solve
           </label>
         </div>
@@ -117,7 +115,35 @@
 
       <button type="submit">SEND</button>
     </form>
-
   </main>
+
+  <script>
+    document.getElementById("contact-form").addEventListener("submit", function (e) {
+      e.preventDefault();
+      var name = document.getElementById("name").value.trim();
+      var country = document.getElementById("country").value.trim();
+      var phone = document.getElementById("phone").value.trim();
+      var email = document.getElementById("email").value.trim();
+      var org = document.getElementById("org").value.trim();
+      var request = (document.querySelector('input[name="Request"]:checked') || {}).value || "";
+      var message = document.getElementById("message").value.trim();
+
+      var body =
+        "Name: " + name + "\n" +
+        "Country: " + country + "\n" +
+        "Phone: " + phone + "\n" +
+        "Email: " + email + "\n" +
+        "Organization: " + org + "\n" +
+        "Request: " + request + "\n\n" +
+        "Message:\n" + message;
+
+      var href =
+        "mailto:mwe382@student.bau.edu.lb" +
+        "?subject=" + encodeURIComponent("Contact — AXEL — " + name) +
+        "&body=" + encodeURIComponent(body);
+
+      window.location.href = href;
+    });
+  </script>
 </body>
 </html>
