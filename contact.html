@@ -8,25 +8,41 @@
     :root { --bg:#070707; --fg:#f4f4f4; --muted:rgba(244,244,244,.55); --line:rgba(244,244,244,.16); }
     * { box-sizing:border-box; margin:0; padding:0; }
     body { background:var(--bg); color:var(--fg); font-family:"Helvetica Neue", Helvetica, Arial, sans-serif; }
-    header {
-      position:fixed; inset:0 0 auto 0; z-index:10;
-      display:flex; justify-content:space-between; align-items:center;
-      padding:28px 40px; letter-spacing:.42em; font-size:11px;
-      background:linear-gradient(#070707 40%, transparent);
-    }
+    header { position:fixed; inset:0 0 auto 0; z-index:10; display:flex; justify-content:space-between; align-items:center; padding:28px 40px; letter-spacing:.42em; font-size:11px; background:linear-gradient(#070707 40%, transparent); }
     header a { color:var(--fg); text-decoration:none; opacity:.7; }
     header a:hover { opacity:1; }
     nav { display:flex; gap:22px; }
-    main { padding:130px 40px 90px; max-width:720px; }
+    main { padding:130px 40px 90px; max-width:780px; }
     .kicker { letter-spacing:.4em; font-size:11px; color:var(--muted); margin-bottom:14px; }
-    h1 { font-weight:400; letter-spacing:.08em; font-size:clamp(32px,5vw,52px); margin-bottom:22px; }
-    p { line-height:1.8; color:rgba(244,244,244,.82); margin-bottom:18px; }
-    .sign { margin-top:28px; letter-spacing:.2em; font-size:13px; }
-    .box { margin-top:48px; padding-top:24px; border-top:1px solid var(--line); }
-    .box h2 { font-size:12px; letter-spacing:.3em; color:var(--muted); margin-bottom:14px; }
-    .box a { color:var(--fg); text-decoration:none; border-bottom:1px solid var(--line); }
-    .box p { margin-bottom:8px; }
-    @media (max-width:700px) { header, main { padding-left:18px; padding-right:18px; } }
+    h1 { font-weight:400; letter-spacing:.1em; font-size:clamp(34px,5vw,56px); margin-bottom:16px; }
+    .lead { color:var(--muted); max-width:560px; line-height:1.7; margin-bottom:40px; }
+    form { display:grid; gap:18px; }
+    label { display:block; font-size:11px; letter-spacing:.28em; color:var(--muted); margin-bottom:8px; }
+    input, select, textarea {
+      width:100%; background:transparent; color:var(--fg); border:1px solid var(--line);
+      padding:14px 14px; font-family:inherit; font-size:15px; outline:none;
+    }
+    input:focus, select:focus, textarea:focus { border-color:rgba(244,244,244,.45); }
+    select { appearance:none; }
+    select option { background:#111; color:#fff; }
+    textarea { min-height:160px; resize:vertical; line-height:1.6; }
+    .grid2 { display:grid; grid-template-columns:1fr 1fr; gap:18px; }
+    .choice { border:1px solid var(--line); padding:18px; }
+    .choice p { font-size:11px; letter-spacing:.28em; color:var(--muted); margin-bottom:14px; }
+    .opts { display:grid; gap:10px; }
+    .opts label { display:flex; align-items:flex-start; gap:10px; letter-spacing:0; font-size:14px; color:var(--fg); cursor:pointer; line-height:1.5; }
+    .opts input { width:auto; margin-top:3px; }
+    button {
+      justify-self:start; margin-top:8px; padding:14px 28px; background:transparent;
+      border:1px solid rgba(244,244,244,.35); color:var(--fg); letter-spacing:.32em;
+      font-size:11px; cursor:pointer; font-family:inherit;
+    }
+    button:hover { background:#fff; color:#111; }
+    .note { margin-top:18px; color:var(--muted); font-size:13px; line-height:1.7; }
+    @media (max-width:700px) {
+      header, main { padding-left:18px; padding-right:18px; }
+      .grid2 { grid-template-columns:1fr; }
+    }
   </style>
 </head>
 <body>
@@ -40,37 +56,71 @@
   </header>
 
   <main>
-    <p class="kicker">04 / CONTACT</p>
-    <h1>Mohamad Wael Elhajj</h1>
+    <p class="kicker">03 / CONTACT</p>
+    <h1>Start the work</h1>
+    <p class="lead">
+      Say who you are, where you are, and what you need.
+      Hire me into the organization, or send the problem itself.
+    </p>
 
-    <p>
-      I am Mohamad Wael Elhajj. Axel is the name I work under.
-      Not a mask. A second name I chose when the first one was no longer large enough for the work.
-    </p>
-    <p>
-      AXEL exists because I was a devoted reader of Aristotle.
-      I did not come to him as a tourist. I stayed. I learned how he cut a problem until only the necessary remained.
-      Substance, cause, form, the act of knowing — those pages did not stay on a shelf.
-      They changed the way I sit with a question.
-    </p>
-    <p>
-      There were nights when a sentence of his felt more like a companion than a text.
-      I wanted a mark that could carry that seriousness into my own life:
-      philosophy first, then mathematics, then science, then the machines that think.
-      AXEL is that mark. A sharp letter. A quiet vow.
-    </p>
-    <p>
-      If you write, write as if the problem matters.
-      I will answer in the same spirit.
-    </p>
-    <p class="sign">— AXEL</p>
+    <form action="mailto:mwe382@student.bau.edu.lb" method="post" enctype="text/plain">
+      <div class="grid2">
+        <div>
+          <label for="name">FULL NAME</label>
+          <input id="name" name="Name" type="text" required />
+        </div>
+        <div>
+          <label for="country">COUNTRY</label>
+          <input id="country" name="Country" type="text" required />
+        </div>
+      </div>
 
-    <div class="box">
-      <h2>WRITE</h2>
-      <p><a href="mailto:mwe382@student.bau.edu.lb">mwe382@student.bau.edu.lb</a></p>
-      <p>+961 81 005 784</p>
-      <p>Tariq Al-Jdideh, Beirut, Lebanon</p>
-    </div>
+      <div class="grid2">
+        <div>
+          <label for="phone">PHONE NUMBER</label>
+          <input id="phone" name="Phone" type="tel" required />
+        </div>
+        <div>
+          <label for="email">EMAIL</label>
+          <input id="email" name="Email" type="email" required />
+        </div>
+      </div>
+
+      <div>
+        <label for="org">ORGANIZATION / OTHER</label>
+        <input id="org" name="Organization" type="text" placeholder="Company, lab, university, or independent" />
+      </div>
+
+      <div class="choice">
+        <p>DO YOU WANT ME TO</p>
+        <div class="opts">
+          <label>
+            <input type="radio" name="Request" value="Work with my organization" required />
+            Work with me inside my organization
+          </label>
+          <label>
+            <input type="radio" name="Request" value="Solve a problem" />
+            Solve a problem
+          </label>
+          <label>
+            <input type="radio" name="Request" value="Both" />
+            Both — join the organization and take the problem
+          </label>
+        </div>
+      </div>
+
+      <div>
+        <label for="message">WHY YOU NEED TO HIRE ME / WHY WORK WITH ME</label>
+        <textarea id="message" name="Message" required placeholder="State the problem or the role. Say why the cheap answer failed. Say what you need from me."></textarea>
+      </div>
+
+      <button type="submit">SEND</button>
+    </form>
+
+    <p class="note">
+      This opens your email app and sends the details to mwe382@student.bau.edu.lb.
+      Fill every field. The message should say why you need the work.
+    </p>
   </main>
 </body>
 </html>
