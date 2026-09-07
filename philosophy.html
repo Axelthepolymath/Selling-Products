@@ -24,12 +24,11 @@
     .price { font-size:28px; letter-spacing:.08em; margin-bottom:18px; }
     form { display:grid; gap:16px; }
     label { display:block; font-size:11px; letter-spacing:.28em; color:var(--muted); margin-bottom:8px; }
-    input, select, textarea {
+    input, textarea {
       width:100%; background:transparent; color:var(--fg); border:1px solid var(--line);
       padding:12px 14px; font-family:inherit; font-size:15px; outline:none;
     }
-    input:focus, select:focus, textarea:focus { border-color:rgba(244,244,244,.45); }
-    select option { background:#111; color:#fff; }
+    input:focus, textarea:focus { border-color:rgba(244,244,244,.45); }
     textarea { min-height:140px; resize:vertical; line-height:1.6; }
     .grid2 { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
     .choice { border:1px solid var(--line); padding:16px; }
@@ -45,6 +44,9 @@
     button:hover { background:#fff; color:#111; }
     .note { margin-top:14px; color:var(--muted); font-size:13px; }
     .back { display:inline-block; margin-top:36px; color:var(--fg); text-decoration:none; letter-spacing:.28em; font-size:11px; opacity:.7; }
+    .done { display:none; color:var(--muted); }
+    body.sent form, body.sent .note { display:none; }
+    body.sent .done { display:block; }
     @media (max-width:700px) {
       header, main { padding-left:18px; padding-right:18px; }
       .grid2 { grid-template-columns:1fr; }
@@ -65,25 +67,28 @@
     <h1>Epistemology & Metaphysics</h1>
     <img src="https://images.unsplash.com/photo-1554907984-15263bfd63bd?auto=format&fit=crop&w=1600&q=80" alt="" />
     <p>
-I work exclusively in epistemology and metaphysics—the study of what can be known, how knowledge is justified, and what must be true or exist for knowledge to be possible.
-I take difficult philosophical problems involving justification, perception, testimony, skepticism, truth, identity, causation, mind, and reality. 
-I strip the problem down to its essential claims, examine the assumptions behind them, and develop a position that can be defended through clear reasoning and rigorous argument.
-
-What I do:
-You provide a philosophical problem, argument, paper, chapter, or unresolved contradiction. I analyze it, identify the central issue, test the reasoning, and construct a rigorous response. 
-The result explains what follows from the argument, what does not, what assumptions are required, and what must be accepted or rejected for the position to hold.
-You receive a written philosophical analysis and defensible argument, with the reasoning presented clearly enough to evaluate, challenge, and defend.
-    
-    You receive a written philosophical analysis and defensible argument, with the reasoning presented clearly enough to evaluate, challenge, and defend.
+      I work exclusively in epistemology and metaphysics—the study of what can be known, how knowledge is justified, and what must be true or exist for knowledge to be possible.
+      I take difficult philosophical problems involving justification, perception, testimony, skepticism, truth, identity, causation, mind, and reality.
+      I strip the problem down to its essential claims, examine the assumptions behind them, and develop a position that can be defended through clear reasoning and rigorous argument.
     </p>
-
+    <p>
+      You provide a philosophical problem, argument, paper, chapter, or unresolved contradiction. I analyze it, identify the central issue, test the reasoning, and construct a rigorous response.
+      The result explains what follows from the argument, what does not, what assumptions are required, and what must be accepted or rejected for the position to hold.
+      You receive a written philosophical analysis and defensible argument, with the reasoning presented clearly enough to evaluate, challenge, and defend.
+    </p>
 
     <div class="cost">
       <h2>COST</h2>
-      <p class="price">$1,800</p>
+      <p class="price">$100</p>
+      <p class="done">Submitted completely.</p>
 
-      <form action="mailto:mwe382@student.bau.edu.lb" method="post" enctype="text/plain">
+      <form action="https://api.web3forms.com/submit" method="POST">
+        <input type="hidden" name="access_key" value="d16b1c8f-b29c-4e88-9ebe-1ec50afd5ad4" />
+        <input type="hidden" name="subject" value="Philosophy request — Epistemology & Metaphysics — $100" />
+        <input type="hidden" name="from_name" value="AXEL website" />
         <input type="hidden" name="Product" value="Epistemology & Metaphysics" />
+        <input type="hidden" name="Price" value="$100" />
+        <input type="hidden" name="redirect" id="next" value="" />
 
         <div class="grid2">
           <div>
@@ -116,7 +121,7 @@ You receive a written philosophical analysis and defensible argument, with the r
           <span>DO YOU WANT ME TO</span>
           <div class="opts">
             <label>
-              <input type="radio" name="Request" value="Work with my organization" required />
+              <input type="radio" name="Request" value="Work with me inside my organization" required />
               Work with me inside my organization
             </label>
             <label>
@@ -137,11 +142,16 @@ You receive a written philosophical analysis and defensible argument, with the r
 
         <button type="submit">SEND MESSAGE</button>
       </form>
-
-      <p class="note">Sends to mwe382@student.bau.edu.lb. Fill every field, then send.</p>
     </div>
 
     <a class="back" href="inside.html">← WORK</a>
   </main>
+
+  <script>
+    document.getElementById("next").value = window.location.origin + window.location.pathname + "?sent=1";
+    if (window.location.search.indexOf("sent=1") !== -1) {
+      document.body.classList.add("sent");
+    }
+  </script>
 </body>
 </html>
