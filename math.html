@@ -21,12 +21,11 @@
     .price { font-size:28px; letter-spacing:.08em; margin-bottom:18px; }
     form { display:grid; gap:16px; }
     label { display:block; font-size:11px; letter-spacing:.28em; color:var(--muted); margin-bottom:8px; }
-    input, select, textarea {
+    input, textarea {
       width:100%; background:transparent; color:var(--fg); border:1px solid var(--line);
       padding:12px 14px; font-family:inherit; font-size:15px; outline:none;
     }
-    input:focus, select:focus, textarea:focus { border-color:rgba(244,244,244,.45); }
-    select option { background:#111; color:#fff; }
+    input:focus, textarea:focus { border-color:rgba(244,244,244,.45); }
     textarea { min-height:140px; resize:vertical; line-height:1.6; }
     .grid2 { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
     .choice { border:1px solid var(--line); padding:16px; }
@@ -40,8 +39,10 @@
       font-size:11px; cursor:pointer; font-family:inherit;
     }
     button:hover { background:#fff; color:#111; }
-    .note { margin-top:14px; color:var(--muted); font-size:13px; }
     .back { display:inline-block; margin-top:36px; color:var(--fg); text-decoration:none; letter-spacing:.28em; font-size:11px; opacity:.7; }
+    .done { display:none; color:var(--muted); }
+    body.sent form { display:none; }
+    body.sent .done { display:block; }
     @media (max-width:700px) {
       header, main { padding-left:18px; padding-right:18px; }
       .grid2 { grid-template-columns:1fr; }
@@ -63,4 +64,83 @@
     <img src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?auto=format&fit=crop&w=1600&q=80" alt="" />
     <p>I take mathematical problems that are already hard: a proof that will not close, a structure that breaks when moved, a model that works until one assumption is changed.</p>
     <p>The work is to find the failure point, rebuild the argument, and leave a result that can be checked.</p>
-    <p>Send the problem, your attempted work, and the constraint.
+    <p>Send the problem, your attempted work, and the constraint. You get a cleaned path: definitions, ordered steps, and the remaining risk named.</p>
+
+    <div class="cost">
+      <h2>COST</h2>
+      <p class="price">$2,200</p>
+      <p class="done">Submitted completely.</p>
+
+      <form action="https://api.web3forms.com/submit" method="POST">
+        <input type="hidden" name="access_key" value="d16b1c8f-b29c-4e88-9ebe-1ec50afd5ad4" />
+        <input type="hidden" name="subject" value="Mathematics request — Complex Mathematics — $2,200" />
+        <input type="hidden" name="from_name" value="AXEL website" />
+        <input type="hidden" name="Product" value="Complex Mathematics" />
+        <input type="hidden" name="Price" value="$2,200" />
+        <input type="hidden" name="redirect" id="next" value="" />
+
+        <div class="grid2">
+          <div>
+            <label for="name">FULL NAME</label>
+            <input id="name" name="Name" type="text" required />
+          </div>
+          <div>
+            <label for="country">COUNTRY</label>
+            <input id="country" name="Country" type="text" required />
+          </div>
+        </div>
+
+        <div class="grid2">
+          <div>
+            <label for="phone">PHONE NUMBER</label>
+            <input id="phone" name="Phone" type="tel" required />
+          </div>
+          <div>
+            <label for="email">YOUR EMAIL</label>
+            <input id="email" name="Email" type="email" required />
+          </div>
+        </div>
+
+        <div>
+          <label for="org">ORGANIZATION / OTHER</label>
+          <input id="org" name="Organization" type="text" />
+        </div>
+
+        <div class="choice">
+          <span>DO YOU WANT ME TO</span>
+          <div class="opts">
+            <label>
+              <input type="radio" name="Request" value="Work with me inside my organization" required />
+              Work with me inside my organization
+            </label>
+            <label>
+              <input type="radio" name="Request" value="Solve a problem" />
+              Solve a problem
+            </label>
+            <label>
+              <input type="radio" name="Request" value="Both" />
+              Both
+            </label>
+          </div>
+        </div>
+
+        <div>
+          <label for="message">WHY YOU NEED TO HIRE ME / WHY WORK WITH ME</label>
+          <textarea id="message" name="Message" required placeholder="State the problem. Say why you need this work."></textarea>
+        </div>
+
+        <button type="submit">SEND MESSAGE</button>
+      </form>
+    </div>
+
+    <a class="back" href="inside.html">← WORK</a>
+  </main>
+
+  <script>
+    document.getElementById("next").value = window.location.origin + window.location.pathname + "?sent=1";
+    if (window.location.search.indexOf("sent=1") !== -1) {
+      document.body.classList.add("sent");
+    }
+  </script>
+</body>
+</html>
