@@ -18,11 +18,34 @@
     p { line-height:1.75; color:rgba(244,244,244,.82); margin-bottom:16px; }
     .cost { margin-top:28px; padding-top:22px; border-top:1px solid var(--line); }
     .cost h2 { font-size:12px; letter-spacing:.3em; color:var(--muted); margin-bottom:10px; }
-    .price { font-size:28px; letter-spacing:.08em; margin-bottom:16px; }
-    .buy { display:inline-block; padding:14px 28px; border:1px solid rgba(244,244,244,.35); color:var(--fg); text-decoration:none; letter-spacing:.32em; font-size:11px; }
-    .buy:hover { background:#fff; color:#111; }
+    .price { font-size:28px; letter-spacing:.08em; margin-bottom:18px; }
+    form { display:grid; gap:16px; }
+    label { display:block; font-size:11px; letter-spacing:.28em; color:var(--muted); margin-bottom:8px; }
+    input, select, textarea {
+      width:100%; background:transparent; color:var(--fg); border:1px solid var(--line);
+      padding:12px 14px; font-family:inherit; font-size:15px; outline:none;
+    }
+    input:focus, select:focus, textarea:focus { border-color:rgba(244,244,244,.45); }
+    select option { background:#111; color:#fff; }
+    textarea { min-height:140px; resize:vertical; line-height:1.6; }
+    .grid2 { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+    .choice { border:1px solid var(--line); padding:16px; }
+    .choice > span { display:block; font-size:11px; letter-spacing:.28em; color:var(--muted); margin-bottom:12px; }
+    .opts { display:grid; gap:10px; }
+    .opts label { display:flex; gap:10px; align-items:flex-start; letter-spacing:0; font-size:14px; color:var(--fg); cursor:pointer; line-height:1.5; }
+    .opts input { width:auto; margin-top:3px; }
+    button {
+      justify-self:start; padding:14px 28px; background:transparent;
+      border:1px solid rgba(244,244,244,.35); color:var(--fg); letter-spacing:.32em;
+      font-size:11px; cursor:pointer; font-family:inherit;
+    }
+    button:hover { background:#fff; color:#111; }
     .note { margin-top:14px; color:var(--muted); font-size:13px; }
     .back { display:inline-block; margin-top:36px; color:var(--fg); text-decoration:none; letter-spacing:.28em; font-size:11px; opacity:.7; }
+    @media (max-width:700px) {
+      header, main { padding-left:18px; padding-right:18px; }
+      .grid2 { grid-template-columns:1fr; }
+    }
   </style>
 </head>
 <body>
@@ -41,12 +64,70 @@
     <p>I take scientific problems that have outgrown a simple experiment or one formula: mixed data, a model that will not predict, a mechanism with too many parts.</p>
     <p>The work is to name the phenomenon, drop what does not matter, and set a line of attack that can be tested.</p>
     <p>Send the question, the evidence you have, and the limit you are under. You get a model of the problem and the next move that would change it.</p>
+
     <div class="cost">
       <h2>COST</h2>
       <p class="price">$2,400</p>
-      <a class="buy" href="https://buy.stripe.com/YOUR_STRIPE_LINK_SCIENCE">PURCHASE</a>
-      <p class="note">Opens Stripe. Buyer enters card details. Payment goes to the Stripe account tied to that link.</p>
+
+      <form action="mailto:mwe382@student.bau.edu.lb" method="post" enctype="text/plain">
+        <input type="hidden" name="Product" value="Complex Science" />
+
+        <div class="grid2">
+          <div>
+            <label for="name">FULL NAME</label>
+            <input id="name" name="Name" type="text" required />
+          </div>
+          <div>
+            <label for="country">COUNTRY</label>
+            <input id="country" name="Country" type="text" required />
+          </div>
+        </div>
+
+        <div class="grid2">
+          <div>
+            <label for="phone">PHONE NUMBER</label>
+            <input id="phone" name="Phone" type="tel" required />
+          </div>
+          <div>
+            <label for="email">YOUR EMAIL</label>
+            <input id="email" name="Email" type="email" required />
+          </div>
+        </div>
+
+        <div>
+          <label for="org">ORGANIZATION / OTHER</label>
+          <input id="org" name="Organization" type="text" />
+        </div>
+
+        <div class="choice">
+          <span>DO YOU WANT ME TO</span>
+          <div class="opts">
+            <label>
+              <input type="radio" name="Request" value="Work with my organization" required />
+              Work with me inside my organization
+            </label>
+            <label>
+              <input type="radio" name="Request" value="Solve a problem" />
+              Solve a problem
+            </label>
+            <label>
+              <input type="radio" name="Request" value="Both" />
+              Both
+            </label>
+          </div>
+        </div>
+
+        <div>
+          <label for="message">WHY YOU NEED TO HIRE ME / WHY WORK WITH ME</label>
+          <textarea id="message" name="Message" required placeholder="State the problem. Say why you need this work."></textarea>
+        </div>
+
+        <button type="submit">SEND MESSAGE</button>
+      </form>
+
+      <p class="note">Sends to mwe382@student.bau.edu.lb. Fill every field, then send.</p>
     </div>
+
     <a class="back" href="inside.html">← WORK</a>
   </main>
 </body>
